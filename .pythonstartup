@@ -1,0 +1,30 @@
+# python startup file
+import readline
+try:
+  import rlcompleter3
+except ImportError:
+  import rlcompleter
+import atexit
+import os
+# tab completion (Linux)
+#readline.parse_and_bind('tab: complete')
+# tab completion (OSX)
+readline.parse_and_bind("bind ^I rl_complete")
+# history file
+histfile = os.path.join(os.environ['HOME'], '.pythonhistory')
+try:
+  readline.read_history_file(histfile)
+except IOError:
+  pass
+atexit.register(readline.write_history_file, histfile)
+del os, histfile, readline
+try:
+  del rlcompleter3
+except NameError:
+  del rlcompleter
+
+import urllib
+def urldecode(s,enc='utf-8'):
+  return urllib.unquote_plus(s).encode('raw_unicode_escape').decode(enc)
+def urlencode(s,enc='utf-8'):
+  return urllib.quote_plus(s)
