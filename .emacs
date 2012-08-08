@@ -1,5 +1,11 @@
 (setq load-path (cons "/Users/kinoshita/.emacs.d/site-lisp" load-path))
 
+;; don't make backups
+(setq make-backup-files nil)
+
+(column-number-mode 1)
+(line-number-mode 1)
+
 (defmacro req (lib &rest body)
   `(when (locate-library ,(symbol-name lib))
      (require ',lib) ,@body))
@@ -44,3 +50,7 @@
 
 (req ddx)
 (req elscreen)
+
+(setq text-mode-hook 'turn-off-auto-fill)
+(setq html-mode-hook 'turn-off-auto-fill)
+
