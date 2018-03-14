@@ -1,0 +1,12 @@
+{
+	"font_face": "Source Han Code JP N",
+	"font_size": 10,
+	"tab_size": 2,
+	"ignored_packages":
+	[
+		"Package Control",
+		"Vintage"
+	],
+	"word_wrap": true,
+	"wrap_width": 0
+}
